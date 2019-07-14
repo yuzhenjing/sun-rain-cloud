@@ -8,6 +8,7 @@
         <module>sun-rain-eureka-client</module>
         <module>sun-rain-cloud-config</module>
         <module>sun-rain-cloud-zookeeper</module>
+        <module>sun-rain-cloud-ribbon</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
