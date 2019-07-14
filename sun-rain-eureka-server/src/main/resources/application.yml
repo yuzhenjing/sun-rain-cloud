@@ -1,0 +1,17 @@
+##设置服务基础配置
+server:
+  port: 8083
+
+##注册中心相关配置
+eureka:
+  client:
+    service-url:
+      defaultZone: http://${eureka.instance.appname}:${server.port}/eureka
+    register-with-eureka: false  #由于本服务是注册中心 所以设置不向注册中心注册自己
+    fetch-registry: false #由于注册中心的职责就是维护实例，所以它不需要去检索实例
+  instance:
+    appname: eureka-server-1
+
+spring:
+  application:
+    name: eureka-server-1

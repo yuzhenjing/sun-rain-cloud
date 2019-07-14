@@ -1,0 +1,13 @@
+##设置服务基础配置
+server:
+  port: 8081
+
+spring:
+  application:
+    name: cloud-config-server
+
+  cloud:
+    config:
+      server:
+        git:
+          uri: C:\workspace\sun-rain-cloud\sun-rain-eureka-server\src\main\resources\configs\

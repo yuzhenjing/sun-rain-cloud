@@ -1,0 +1,14 @@
+server:
+  port: 0  #随机端口
+
+
+spring:
+  cloud:
+    zookeeper:
+      connect-string: 47.110.59.121:2181
+      discovery: true
+  application:
+    name: zk-discovery
+management:
+  server:
+    port: 9090
