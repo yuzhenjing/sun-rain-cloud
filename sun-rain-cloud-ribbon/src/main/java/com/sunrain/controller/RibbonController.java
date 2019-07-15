@@ -23,7 +23,6 @@ public class RibbonController {
     @Autowired
     private RestTemplate restTemplate;
 
-
     @Autowired
     private DiscoveryClient discoveryClient;
 
