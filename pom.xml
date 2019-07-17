@@ -10,6 +10,7 @@
         <module>sun-rain-cloud-zookeeper</module>
         <module>sun-rain-cloud-ribbon</module>
         <module>sun-rain-cloud-hystrix</module>
+        <module>sun-rain-cloud-feign</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
