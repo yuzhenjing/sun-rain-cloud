@@ -1,13 +1,19 @@
-eureka:
-  client:
-    service-url:
-      defaultZone: http://admin:admin@localhost:8761/eureka/,http://admin:admin@localhost:8762/eureka/
-  instance:
-    #表示将自己的ip注册到eureka server  如不配置该属性或者将其设置为false
-    #则表示注册微服务所在hostname 注册到eureka server 上
-    prefer-ip-address: true
 spring:
   application:
     name: eureka-client-1
 server:
   port: 8082
+
+
+eureka:
+  client:
+    service-url:
+      zone1: http://localhost:8762/eureka/
+      zone2: http://localhost:8761/eureka/
+  instance:
+    hostname: eureka-client-1
+    #表示将自己的ip注册到eureka server  如不配置该属性或者将其设置为false
+    #则表示注册微服务所在hostname 注册到eureka server 上
+    prefer-ip-address: true
+
+

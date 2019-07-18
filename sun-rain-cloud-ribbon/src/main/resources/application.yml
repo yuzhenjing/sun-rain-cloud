@@ -9,4 +9,10 @@ spring:
   application:
     name: ribbon-client-1
 
+eureka-client-1:
+  ribbon:
 
+ribbon:
+  eager-load:      #ribbon 在进行客户端负载均衡的时候并不是在客户端启动的时候加载配置项而是在实际请求的时候才去创建
+    #因此这个个特性 会让我们第一次调用的时候产生错误 导致调用超时，可以通过ribbon客户端名称来开启饥饿加载
+    clients: eureka-client-1 #开启饥饿模式  服务器启动时候加载所有配置项应用上下文

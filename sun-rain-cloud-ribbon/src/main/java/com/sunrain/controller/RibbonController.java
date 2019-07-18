@@ -9,7 +9,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
 import java.util.List;
-import java.util.Map;
 
 /**
  * 服务注册与发现从测试
@@ -28,8 +27,8 @@ public class RibbonController {
 
 
     @GetMapping("/test")
-    public Map<String, Object> test() {
-        return (Map<String, Object>) restTemplate.getForEntity("http://eureka-client-1/getMap", Map.class);
+    public String test() {
+        return restTemplate.getForEntity("http://eureka-client-1/sayHello", String.class).getBody();
     }
 
     @GetMapping(value = "/getInstances")

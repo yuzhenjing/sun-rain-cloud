@@ -1,0 +1,30 @@
+server:
+  port: 8086
+spring:
+  application:
+    name: feign-consumer-1
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+  instance:
+    hostname: feign-consumer-1
+    #表示将自己的ip注册到eureka server  如不配置该属性或者将其设置为false
+    #则表示注册微服务所在hostname 注册到eureka server 上
+    prefer-ip-address: true
+feign:
+  compression:
+    request:
+      enabled: true    #开启GZIP压缩  feign 之间的数据是二进制传输  在返回值的时候使用ResponseEntity<byte[]>
+      mime-types: text/xml,application/xml,application/json # 配置压缩支持的mime-type  也是默认支持的几种
+      min-request-size: 2048 #配置压缩支持的下线
+    response:
+      enabled: true #配置响应压缩
+  httpclient:
+    enabled: true # 使用apache httpclient 替代jdk 原生 的 URLConnection
+    # 使用OKhttp 替代原生 URLConnection   httpclient 和okhttp  二者选择一个
+  okhttp:
+    enabled: true
+
