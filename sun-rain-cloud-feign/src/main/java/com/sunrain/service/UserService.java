@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 /**
  * @author admin
  */
-@FeignClient(name = "EUREKA-CLIENT-2")
+@FeignClient(name = "EUREKA-CLIENT-2",fallback = UserServiceFallBack.class)
 public interface UserService {
 
     /**

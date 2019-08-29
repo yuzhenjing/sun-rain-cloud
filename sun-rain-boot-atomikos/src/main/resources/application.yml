@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: boot-atomikos
+  jta:
+    atomikos:
+      connectionfactory:
+        xa-properties:
+              url: jdbc:mysql//47.110.59.121:3360/order
+              user: sa
+              password:
+        max-lifetime: 1000
+        max-pool-size: 10
+        min-pool-size: 1
+        borrow-connection-timeout: 1000
+        unique-resource-name: order
+
+server:
+  port: 8088

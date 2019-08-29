@@ -25,7 +25,6 @@ public class StoreIntegration {
     }
 
     public Object defaultStores(HttpServletRequest request) {
-
         return "error";
     }
 

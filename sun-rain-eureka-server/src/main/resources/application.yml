@@ -6,6 +6,9 @@ spring:
 #    user:
 #      name: admin
 #      password: admin
+
+##启动参数配置
+#  --spring.profiles.active=peer1
 ---
 spring:
   profiles: peer1
@@ -14,21 +17,94 @@ server:
   ##注册中心相关配置
 eureka:
   instance:
-    hostname: peer1
+    hostname: localhost
+    prefer-ip-address: true
+    metadata-map:
+      zone: zone1
   client:
     service-url:
-      defaultZone: http://peer2:8762/eureka/
-    register-with-eureka: false  #由于本服务是注册中心 所以设置不向注册中心注册自己
+      zone1: http://localhost:8761/eureka/,http://localhost:8762/eureka/
+      zone2: http://localhost:8763/eureka/,http://localhost:8764/eureka/
+    register-with-eureka: true  #由于本服务是注册中心 所以设置不向注册中心注册自己
     fetch-registry: false #由于注册中心的职责就是维护实例，所以它不需要去检索实例
+    region: region-east
+    availability-zones:
+      region-east: zone1,zone2
+  server:
+    wait-time-in-ms-when-sync-empty: 0
+    enable-self-preservation: true
 ---
+spring:
+  profiles: peer2
 server:
   port: 8762
   ##注册中心相关配置
 eureka:
   instance:
-    hostname: peer2
+    hostname: localhost
+    prefer-ip-address: true
+    metadata-map:
+      zone: zone1
   client:
     service-url:
-      defaultZone: http://peer1:8761/eureka/
-    register-with-eureka: false
-    fetch-registry: false
+      zone1: http://localhost:8761/eureka/,http://localhost:8762/eureka/
+      zone2: http://localhost:8763/eureka/,http://localhost:8764/eureka/
+    register-with-eureka: true  #由于本服务是注册中心 所以设置不向注册中心注册自己
+    fetch-registry: false #由于注册中心的职责就是维护实例，所以它不需要去检索实例
+    region: region-east
+    availability-zones:
+      region-east: zone1,zone2
+  server:
+    wait-time-in-ms-when-sync-empty: 0
+    enable-self-preservation: true
+
+---
+spring:
+  profiles: peer3
+server:
+  port: 8763
+  ##注册中心相关配置
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    metadata-map:
+      zone: zone1
+  client:
+    service-url:
+      zone1: http://localhost:8761/eureka/,http://localhost:8762/eureka/
+      zone2: http://localhost:8763/eureka/,http://localhost:8764/eureka/
+    register-with-eureka: true  #由于本服务是注册中心 所以设置不向注册中心注册自己
+    fetch-registry: false #由于注册中心的职责就是维护实例，所以它不需要去检索实例
+    region: region-east
+    availability-zones:
+      region-east: zone1,zone2
+  server:
+    wait-time-in-ms-when-sync-empty: 0
+    enable-self-preservation: true
+
+
+---
+spring:
+  profiles: peer4
+server:
+  port: 8764
+  ##注册中心相关配置
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true
+    metadata-map:
+      zone: zone1
+  client:
+    service-url:
+      zone1: http://localhost:8761/eureka/,http://localhost:8762/eureka/
+      zone2: http://localhost:8763/eureka/,http://localhost:8764/eureka/
+    register-with-eureka: true  #由于本服务是注册中心 所以设置不向注册中心注册自己
+    fetch-registry: false #由于注册中心的职责就是维护实例，所以它不需要去检索实例
+    region: region-east
+    availability-zones:
+      region-east: zone1,zone2
+  server:
+    wait-time-in-ms-when-sync-empty: 0
+    enable-self-preservation: true

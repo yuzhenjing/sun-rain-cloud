@@ -9,7 +9,7 @@ import org.springframework.web.multipart.MultipartFile;
 /**
  * @author admin
  */
-@FeignClient(name = "EUREKA-CLIENT-1")
+@FeignClient(name = "EUREKA-CLIENT-1",fallback = FeignUploadFileServiceFallBack.class)
 public interface FeignUploadFileService {
 
     /**

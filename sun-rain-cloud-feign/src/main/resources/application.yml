@@ -27,4 +27,5 @@ feign:
     # 使用OKhttp 替代原生 URLConnection   httpclient 和okhttp  二者选择一个
   okhttp:
     enabled: true
-
+  hystrix:
+    enabled: true
