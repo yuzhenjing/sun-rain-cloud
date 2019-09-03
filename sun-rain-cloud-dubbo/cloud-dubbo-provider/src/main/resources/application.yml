@@ -1,0 +1,11 @@
+
+dubbo:
+  scan:
+    base-packages: com.sunrain.provider
+  application:
+    name: hello-provider
+  registry:
+    address: zookeeper://47.110.59.121:2181
+spring:
+  application:
+    name: hello-provider

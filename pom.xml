@@ -14,6 +14,8 @@
         <module>sun-rain-cloud-zuul</module>
         <module>sun-rain-boot-atomikos</module>
         <module>sun-rain-cloud-gateway</module>
+        <module>sun-rain-cloud-dubbo</module>
+        <module>sun-rain-cloud-apollo</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>

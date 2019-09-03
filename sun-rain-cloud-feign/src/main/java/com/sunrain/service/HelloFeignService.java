@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 /**
  * @author yzz
  */
-@FeignClient(name = "github-client", url = "https://api.github.com")
+@FeignClient(name = "github-client", url = "https://com.sunrain.api.github.com")
 public interface HelloFeignService {
 
     /**
